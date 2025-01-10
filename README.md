@@ -75,6 +75,14 @@ Would output:
 exit
 ```
 This will exit the container and return you back to your own local OS command prompt.  
+<br/>  
+
+## Not sure which images you have build or downloaded?  
+You can run the following:  
+```
+sudo docker images
+```
+This will list all docker images you have available on your local OS.  
 
 
 ## Containers in Docker Hub Repos  
