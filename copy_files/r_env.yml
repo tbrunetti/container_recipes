@@ -6,7 +6,7 @@ channels:
     - r
 dependencies:
     - python=3.13.1
-    - r-base>=4.0
+    - r-base=4.3.3
     - r-essentials=4.3
     - r-rstatix=0.7.2
     - r-ggpubr=0.6.0

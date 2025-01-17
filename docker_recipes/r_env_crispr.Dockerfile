@@ -3,7 +3,7 @@
 FROM condaforge/mambaforge
 
 ## copying r_env.yml file into image
-COPY r_env.yml r_env.yml
+COPY copy_files/r_env.yml r_env.yml
 
 ## installing r/python packages needed via miniforge
 RUN conda env create -f r_env.yml
