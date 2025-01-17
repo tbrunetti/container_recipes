@@ -117,5 +117,7 @@ This will list all docker images you have available on your local OS.
     * multiqc-v1.16  
     * cutadapt-v4.2  
     * bowtie1-v1.3.1   
-    * bbmap-v39.08  
+    * bbmap-v39.08
+    * quarto-v1.6.40
+    * r_env_crispr-v4.3.3 
 
