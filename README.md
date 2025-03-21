@@ -15,6 +15,24 @@ sudo docker build -f nameOf.Dockerfile . --tag nameOfContainer
 <br/>  
 
 These containers are also pre-compiled and built on my dockerhub for immediate use.  
+
+**To build and push containers to dockerhub**
+
+Make sure you name your container in a way that directs it to the proper dockerhub repo.
+
+```
+sudo docker build -f nameOf.Dockerfile . --tag user/repo:nameOfContainer
+```
+<br/>  
+<br/> 
+
+You can then push it to a dockerhub repo like so:
+```
+sudo docker push user/repo:nameOfContainer
+```
+<br/>  
+<br/> 
+
 **To download a pre-built and pre-compiled container:**
 For example, if you wanted to pull down a copy of the `fastqc_v_0.12.1` container, you can run:  
 
@@ -119,5 +137,22 @@ This will list all docker images you have available on your local OS.
     * bowtie1-v1.3.1   
     * bbmap-v39.08
     * quarto-v1.6.40
-    * r_env_crispr-v4.3.3 
+    * r_env_crispr-v4.3.3
 
+* _madiapgar/bulk_rna_seq_
+    * fastqc_conda-v0.12.1 (conda install of FastQC) 
+
+
+## ADVANCED!
+
+**To build multi-platform containers**
+
+You will need to enable your [docker environment to build multi-platform containers](https://docs.docker.com/build/building/multi-platform/#build-multi-platform-images). Once you have done so, you can build your container on multiple platforms and push it to the dockerhub repo all in the same command.
+
+```
+sudo docker buildx build \
+--push \
+--platform linux/amd64,linux/arm64 \ ## whatever platforms you want it built on 
+-f nameOf.Dockerfile \
+--tag user/repo:nameOfContainer . 
+```

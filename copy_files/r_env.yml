@@ -4,8 +4,9 @@ channels:
     - conda-forge
     - anaconda
     - r
+    - nodefaults
 dependencies:
-    - python=3.13.1
+    - python>=3.11
     - r-base=4.3.3
     - r-essentials=4.3
     - r-rstatix=0.7.2
@@ -15,3 +16,4 @@ dependencies:
     - r-argparse=2.2.3
     - r-ggforce=0.4.2
     - bioconductor-edger=4.0.16
+    - snakemake=8.27.1
