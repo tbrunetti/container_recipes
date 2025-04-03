@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 
 # initial OS library and certificate updates
 RUN apt-get update && \
-    apt-get install -y software-properties-common
+    apt-get install -y software-properties-common wget
 
 # add python repo
 RUN add-apt-repository ppa:deadsnakes/ppa
@@ -18,3 +18,12 @@ RUN apt-get update &&  \
 # this docker container is multiqc, ok with doing it just to install
 # package globally and bypass a virutal env
 RUN pip3 install --no-cache-dir --break-system-packages multiqc==1.26
+
+# install conda due to dependancy bug in snakemake but will not be used for installing software
+RUN cd /opt/ && \
+    wget https://github.com/conda-forge/miniforge/releases/download/24.11.3-2/Miniforge3-24.11.3-2-Linux-x86_64.sh && \
+    chmod a+x Miniforge3-24.11.3-2-Linux-x86_64.sh && \
+    bash Miniforge3-24.11.3-2-Linux-x86_64.sh -b # install in batch mode so not prompted for user input
+
+# add fastqc executable to path
+ENV PATH="$PATH:/root/miniforge3/bin"

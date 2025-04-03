@@ -16,4 +16,10 @@ RUN cd /opt && \
     rm -rf download # to save image space since already decompressed
 
 # add binary location to path
-ENV PATH "$PATH:/opt/bowtie-1.3.1-linux-x86_64/"
+# install conda due to dependancy bug in snakemake but will not be used for installing software
+RUN cd /opt/ && \
+    wget https://github.com/conda-forge/miniforge/releases/download/24.11.3-2/Miniforge3-24.11.3-2-Linux-x86_64.sh && \
+    chmod a+x Miniforge3-24.11.3-2-Linux-x86_64.sh && \
+    bash Miniforge3-24.11.3-2-Linux-x86_64.sh -b # install in batch mode so not prompted for user input
+
+ENV PATH="$PATH:/opt/bowtie-1.3.1-linux-x86_64/:/root/miniforge3/bin"
