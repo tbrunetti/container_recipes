@@ -2,7 +2,6 @@ name: fastqc_v0.12.1
 channels:
   - bioconda
   - conda-forge
-  - anaconda
   - nodefaults
 dependencies:
   - python>=3.11

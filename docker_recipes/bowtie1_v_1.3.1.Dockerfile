@@ -20,6 +20,6 @@ RUN cd /opt && \
 RUN cd /opt/ && \
     wget https://github.com/conda-forge/miniforge/releases/download/24.11.3-2/Miniforge3-24.11.3-2-Linux-x86_64.sh && \
     chmod a+x Miniforge3-24.11.3-2-Linux-x86_64.sh && \
-    bash Miniforge3-24.11.3-2-Linux-x86_64.sh -b # install in batch mode so not prompted for user input
+    bash Miniforge3-24.11.3-2-Linux-x86_64.sh -b -p /opt/miniforge3 # install in batch mode so not prompted for user input
 
-ENV PATH="$PATH:/opt/bowtie-1.3.1-linux-x86_64/:/root/miniforge3/bin"
+ENV PATH="$PATH:/opt/bowtie-1.3.1-linux-x86_64/:/opt/miniforge3/bin"

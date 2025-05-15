@@ -21,12 +21,9 @@ RUN pip3 install --no-cache-dir --break-system-packages multiqc==1.26
 
 # install conda due to dependancy bug in snakemake but will not be used for installing software
 RUN cd /opt/ && \
-    wget https://github.com/conda-forge/miniforge/releases/download/24.11.3-2/Miniforge3-24.11.3-2-Linux-x86_64.sh && \
-    chmod a+x Miniforge3-24.11.3-2-Linux-x86_64.sh && \
-    bash Miniforge3-24.11.3-2-Linux-x86_64.sh -b -p /opt/miniforge3
-    # install in batch mode so not prompted for user input
+    wget "https://github.com/conda-forge/miniforge/releases/download/24.11.3-2/Miniforge3-$(uname)-$(uname -m).sh" && \
+    chmod a+x Miniforge3-$(uname)-$(uname -m).sh && \
+    bash Miniforge3-$(uname)-$(uname -m).sh -b -p /opt/miniforge3 # install in batch mode so not prompted for user input
 
 # add fastqc executable to path
-## singularity getting conda 'permission denied' error on alpine, probs bc it was installed in root 
-## this works!!
 ENV PATH="$PATH:/opt/miniforge3/bin"
