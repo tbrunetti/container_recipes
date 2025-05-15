@@ -2,7 +2,6 @@ name: r_env_crispr
 channels:
     - bioconda
     - conda-forge
-    - anaconda
     - r
     - nodefaults
 dependencies:

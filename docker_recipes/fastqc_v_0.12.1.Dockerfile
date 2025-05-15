@@ -10,7 +10,7 @@ RUN apt-get update &&  \
 RUN cd /opt/ && \
     wget https://github.com/conda-forge/miniforge/releases/download/24.11.3-2/Miniforge3-24.11.3-2-Linux-x86_64.sh && \
     chmod a+x Miniforge3-24.11.3-2-Linux-x86_64.sh && \
-    bash Miniforge3-24.11.3-2-Linux-x86_64.sh -b # install in batch mode so not prompted for user input
+    bash Miniforge3-24.11.3-2-Linux-x86_64.sh -b -p /opt/miniforge3 # install in batch mode so not prompted for user input
 
 # download and unzip precompiled binary
 RUN cd /opt/ && \
@@ -19,4 +19,4 @@ RUN cd /opt/ && \
     rm -rf fastqc_v0.12.1.zip
 
 # add fastqc executable to path
-ENV PATH="$PATH:/opt/FastQC/:/root/miniforge3/bin"
+ENV PATH="$PATH:/opt/FastQC/:/opt/miniforge3/bin"

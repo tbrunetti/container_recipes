@@ -2,7 +2,6 @@ name: base_snake
 channels:
   - bioconda
   - conda-forge
-  - anaconda
   - nodefaults
 dependencies:
   - python>=3.11
