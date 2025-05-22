@@ -1,6 +1,6 @@
 ## using prebuilt miniforge image 
 ## may want to figure out how to reduce the size of the image
-FROM condaforge/mambaforge
+FROM condaforge/miniforge3:24.11.3-2
 
 ## copying r_env.yml file into image
 COPY copy_files/r_env.yml r_env.yml

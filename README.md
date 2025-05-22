@@ -140,7 +140,10 @@ This will list all docker images you have available on your local OS.
     * r_env_crispr-v4.3.3
 
 * _madiapgar/bulk_rna_seq_
-    * fastqc_conda-v0.12.1 (conda install of FastQC) 
+    * fastqc-v0.12.1
+    * star-v2.7.10b
+    * multiqc-v1.26
+    * cutadapt-v4.2
 
 
 ## ADVANCED!

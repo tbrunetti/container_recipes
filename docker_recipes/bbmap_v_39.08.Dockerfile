@@ -14,9 +14,9 @@ RUN cd /opt/ && \
 
 # install conda due to dependancy bug in snakemake but will not be used for installing software
 RUN cd /opt/ && \
-    wget https://github.com/conda-forge/miniforge/releases/download/24.11.3-2/Miniforge3-24.11.3-2-Linux-x86_64.sh && \
-    chmod a+x Miniforge3-24.11.3-2-Linux-x86_64.sh && \
-    bash Miniforge3-24.11.3-2-Linux-x86_64.sh -b -p /opt/miniforge3 # install in batch mode so not prompted for user input
+    wget "https://github.com/conda-forge/miniforge/releases/download/24.11.3-2/Miniforge3-24.11.3-2-$(uname)-$(uname -m).sh" && \
+    chmod a+x Miniforge3-24.11.3-2-$(uname)-$(uname -m).sh && \
+    bash Miniforge3-24.11.3-2-$(uname)-$(uname -m).sh -b -p /opt/miniforge3 # install in batch mode so not prompted for user input
 
 # add scripts in bbmap to path
 ENV PATH="$PATH:/opt/bbmap/:/opt/miniforge3/bin"
