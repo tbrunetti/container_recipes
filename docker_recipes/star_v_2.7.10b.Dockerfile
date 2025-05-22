@@ -7,13 +7,13 @@ RUN apt-get update &&  \
     rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
 # download and unzip precompiled binary
-# compiling binary rn but couldn't get precompiled executable to work 
+# compiling binary rn but couldn't get precompiled executable to work
 RUN cd /opt/ && \
     wget https://github.com/alexdobin/STAR/archive/2.7.10b.tar.gz && \
     tar -zxvf 2.7.10b.tar.gz && \
     rm -rf 2.7.10b.tar.gz
 
-# compiling binary rn but couldn't get precompiled executable to work 
+# compiling binary rn but couldn't get precompiled executable to work
     #cd STAR-2.7.10b/source/ && \
     #make STAR
 
