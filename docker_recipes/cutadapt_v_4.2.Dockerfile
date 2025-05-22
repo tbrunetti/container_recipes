@@ -20,10 +20,12 @@ RUN apt-get update &&  \
 RUN pip3 install --no-cache-dir --break-system-packages cutadapt==4.2
 
 # install conda due to dependancy bug in snakemake but will not be used for installing software
+## uname = pulls os name (i.e. Linux)
+## uname -m = pulls os arch (i.e. amd64/arm64)
 RUN cd /opt/ && \
-    wget https://github.com/conda-forge/miniforge/releases/download/24.11.3-2/Miniforge3-24.11.3-2-Linux-x86_64.sh && \
-    chmod a+x Miniforge3-24.11.3-2-Linux-x86_64.sh && \
-    bash Miniforge3-24.11.3-2-Linux-x86_64.sh -b -p /opt/miniforge3 # install in batch mode so not prompted for user input
+    wget "https://github.com/conda-forge/miniforge/releases/download/24.11.3-2/Miniforge3-24.11.3-2-$(uname)-$(uname -m).sh" && \
+    chmod a+x Miniforge3-24.11.3-2-$(uname)-$(uname -m).sh && \
+    bash Miniforge3-24.11.3-2-$(uname)-$(uname -m).sh -b -p /opt/miniforge3 # install in batch mode so not prompted for user input
 
 # add fastqc executable to path
 ENV PATH="$PATH:/opt/miniforge3/bin"
