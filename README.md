@@ -130,6 +130,7 @@ This will list all docker images you have available on your local OS.
 ## Containers in Docker Hub Repos
 
 * [_tbrunetti/functional_crispr_screen_](https://hub.docker.com/r/tbrunetti/functional_crispr_screen/tags)
+<<<<<<< HEAD
     * ubuntu-v24.04
     * fastqc-v0.12.1
     * multiqc-v1.16
@@ -154,6 +155,7 @@ This will list all docker images you have available on your local OS.
     * humann-v3.9 *(includes metaphlan v4.0.3)*
 
 
+
 ## ADVANCED!
 
 **To build multi-platform containers**
@@ -165,6 +167,7 @@ sudo docker buildx build \
 --push \
 --platform linux/amd64,linux/arm64 \ ## whatever platforms you want it built on
 -f nameOf.Dockerfile \
+<<<<<<< HEAD
 --tag user/repo:nameOfContainer .
 ```
 
@@ -186,3 +189,13 @@ sudo docker run --mount type=bind,src=/my_local/directory/,target=/directory/ \
 user/repo:nameOfContainer \
 command --file directory/sub_directory/local_file.txt
 ```
+=======
+--tag user/repo:nameOfContainer .
+```
+
+Building multi-platform containers takes up a lot of space, make sure to continually clear your cache so you don't get any "not enough free disk space" errors from docker. You can do this by running the command below.
+
+```
+sudo docker system prune -a
+```
+>>>>>>> 46aec58 (building containers for rsem and picard)
