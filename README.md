@@ -129,7 +129,7 @@ This will list all docker images you have available on your local OS.
 
 ## Containers in Docker Hub Repos  
 
-* _tbrunetti/functional_crispr_screen_  
+* [_tbrunetti/functional_crispr_screen_](https://hub.docker.com/r/tbrunetti/functional_crispr_screen/tags)
     * ubuntu-v24.04  
     * fastqc-v0.12.1  
     * multiqc-v1.16  
@@ -139,11 +139,13 @@ This will list all docker images you have available on your local OS.
     * quarto-v1.6.40
     * r_env_crispr-v4.3.3
 
-* _madiapgar/bulk_rna_seq_
+* [_madiapgar/bulk_rna_seq_](https://hub.docker.com/r/madiapgar/bulk_rna_seq/tags)
     * fastqc-v0.12.1
-    * star-v2.7.10b
+    * star-v2.7.10b (linux/amd64 only!!)
     * multiqc-v1.26
     * cutadapt-v4.2
+    * rsem-v1.3.3
+    * picard-v2.27.5
 
 
 ## ADVANCED!
@@ -158,4 +160,10 @@ sudo docker buildx build \
 --platform linux/amd64,linux/arm64 \ ## whatever platforms you want it built on 
 -f nameOf.Dockerfile \
 --tag user/repo:nameOfContainer . 
+```
+
+Building multi-platform containers takes up a lot of space, make sure to continually clear your cache so you don't get any "not enough free disk space" errors from docker. You can do this by running the command below. 
+
+```
+sudo docker system prune -a
 ```

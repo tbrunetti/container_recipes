@@ -22,7 +22,12 @@ RUN apt-get update &&  \
     apt-get install -y wget default-jre default-jdk gdebi-core && \
     rm -rf /var/lib/apt/lists/* 
 
+## pulling buildx global variable of the target arch of the image
+## bc uname -m doesnt work for quarto arm64 (their file is named linux-arm64 and not linux-aarch64)
+## have to call it as an ARG here before you can use it in RUN commands
+ARG TARGETARCH
+
 ## installing quarto CLI since dependencies have already been installed 
 RUN cd /opt/ && \
-    wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.40/quarto-1.6.40-linux-arm64.deb && \
-    gdebi --non-interactive quarto-1.6.40-linux-arm64.deb 
+    wget "https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.40/quarto-1.6.40-linux-$TARGETARCH.deb" && \
+    gdebi --non-interactive quarto-1.6.40-linux-$TARGETARCH.deb 
