@@ -43,7 +43,7 @@ sudo docker pull tbrunetti/functional_crispr_screen:fastqc-v0.12.1
 <br/>  
  
 Containers can run the software that is containerize by calling the container and executable you want to use.  
-For example, if you wanted to **run fastqc from the software container on files that live on your local computer (not withiin the container)**, using the `fastqc_v_0.12.1` container build, you can do the following (in this case it will pull up the help page):  
+For example, if you wanted to **run fastqc from the software container on files that live on your local computer (not within the container)**, using the `fastqc_v_0.12.1` container build, you can do the following (in this case it will pull up the help page):  
 > [!IMPORTANT] 
 > The command below will only work if you have either (a) already built the container from a dockerfile first using the build command above, or (b) downloaded the pre-built/pre-compiled container using the pull command above.  
 
@@ -166,4 +166,17 @@ Building multi-platform containers takes up a lot of space, make sure to continu
 
 ```
 sudo docker system prune -a
+```
+
+**To create a bind point to a docker container**
+
+To run commands in a pre-built container that require local files, you'll need to [specify a bind point](https://docs.docker.com/engine/storage/bind-mounts/). You'll notice that the `--mount` flag requires three inputs (separated by commas); `type`, `src`, and `target`. 
+* `type`: is the kind of mount you would like to do to the docker container. In this case, we want a bind point to the local system, so `type=bind`.
+* `src`: is the location of a file/directory on the host (i.e. what local files you want run in the container) and can be an absolute or relative path (can use `src=.` or `src="$(pwd)"` as well). 
+* `target`: is the location where the file/directory is mounted in the container and _MUST_ be an absolute path. 
+
+```
+sudo docker run --mount type=bind,src=/my_local/directory/,target=/directory/ \
+user/repo:nameOfContainer \
+command --file directory/sub_directory/local_file.txt
 ```
