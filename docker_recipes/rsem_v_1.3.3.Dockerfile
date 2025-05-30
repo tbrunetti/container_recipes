@@ -13,6 +13,11 @@ RUN cd /opt/ && \
     tar -zxvf v1.3.3.tar.gz && \
     rm -rf v1.3.3.tar.gz
 
+## making all rsem commands executable! (or else you get a really weird error)
+RUN cd /opt/RSEM-1.3.3/ && \
+    make
+    ## make install ##can remove this bc it only adds executables to usr/local/bin/
+
 # install conda due to dependancy bug in snakemake but will not be used for installing software
 RUN cd /opt/ && \
     wget "https://github.com/conda-forge/miniforge/releases/download/24.11.3-2/Miniforge3-24.11.3-2-$(uname)-$(uname -m).sh" && \
