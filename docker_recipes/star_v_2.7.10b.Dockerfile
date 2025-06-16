@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 
 # update OS libraries and install OS dependencies to get star working
 RUN apt-get update &&  \
-    apt-get install -y unzip gzip wget python3 build-essential && \
+    apt-get install -y unzip gzip wget python3 build-essential bc perl-doc && \
     rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
 # download and unzip precompiled binary
