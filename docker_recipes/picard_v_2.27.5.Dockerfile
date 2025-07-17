@@ -13,7 +13,6 @@ RUN cd /opt/ && \
     tar -zxvf 2.27.5.tar.gz && \
     rm -rf 2.27.5.tar.gz
 
-<<<<<<< HEAD
 ## download picard.jar file and place it in the picard-2.27.5 directory
 ## cant have anything under root or else others cant access them while running container
 RUN cd /opt/picard-2.27.5/ && \
