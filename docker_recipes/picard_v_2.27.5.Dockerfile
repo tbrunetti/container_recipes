@@ -13,8 +13,10 @@ RUN cd /opt/ && \
     tar -zxvf 2.27.5.tar.gz && \
     rm -rf 2.27.5.tar.gz
 
-## download picard.jar file and place it in the home directory (top level)
-RUN wget https://github.com/broadinstitute/picard/releases/download/2.27.5/picard.jar
+## download picard.jar file and place it in the picard-2.27.5 directory
+## cant have anything under root or else others cant access them while running container
+RUN cd /opt/picard-2.27.5/ && \
+    wget https://github.com/broadinstitute/picard/releases/download/2.27.5/picard.jar
 
 # install conda due to dependancy bug in snakemake but will not be used for installing software
 RUN cd /opt/ && \
