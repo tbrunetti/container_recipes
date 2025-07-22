@@ -131,7 +131,6 @@ This will list all docker images you have available on your local OS.
 ## Containers in Docker Hub Repos
 
 * [_tbrunetti/functional_crispr_screen_](https://hub.docker.com/r/tbrunetti/functional_crispr_screen/tags)
-<<<<<<< HEAD
     * ubuntu-v24.04
     * fastqc-v0.12.1
     * multiqc-v1.16
@@ -154,8 +153,6 @@ This will list all docker images you have available on your local OS.
     * multiqc-v1.26
     * bbmap-v39.08
     * humann-v3.9 *(includes metaphlan v4.0.3)*
-
-
 
 ## ADVANCED!
 
