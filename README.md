@@ -147,6 +147,12 @@ This will list all docker images you have available on your local OS.
     * rsem-v1.3.3
     * picard-v2.27.5
 
+* [_madiapgar/shotgun_meta_](https://hub.docker.com/repository/docker/madiapgar/shotgun_meta/tags)
+    * fastqc-v0.12.1
+    * multiqc-v1.26
+    * bbmap-v39.08
+    * humann-v3.9 *(includes metaphlan v4.0.3)*
+
 
 ## ADVANCED!
 
