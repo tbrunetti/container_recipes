@@ -154,6 +154,11 @@ This will list all docker images you have available on your local OS.
     * bbmap-v39.08
     * humann-v3.9 *(includes metaphlan v4.0.3)*
 
+* [_tbrunetti/immu6110_introduction_to_bioinformatics_](https://hub.docker.com/repository/docker/tbrunetti/immu6110_introduction_to_bioinformatics/tags)
+   * imsuper4_freeze_2025-08-13_r_v_4.4.2 (see ADVANCED! section for more info on this build)
+   * v02.2022
+   * v01.2022
+
 ## ADVANCED!
 
 **To build multi-platform containers**
@@ -186,3 +191,16 @@ sudo docker run --mount type=bind,src=/my_local/directory/,target=/directory/ \
 user/repo:nameOfContainer \
 command --file directory/sub_directory/local_file.txt
 ```
+
+** Rebuilding imsuper4_freeze_2025-08-13_r_v_4.4.2
+The container image is a version controlled freeze of R v4.4.2 and all associated R packages (~650 different R packages) on the Department of Immunology & Microbiology imsuper4 compute node as of August 13, 2025.  This DockerFile and generated image are a complicated and due to the nature of using `renv` with nearly 650 version controlled packges for R v4.4.2, it encounters many random seg faults during the builder stage that are not reproducible.  Therefore, an renv cache is generated within the builder stage of the container so that at each failure, the build can be re-run from point of failure without having to download packages again or re-install any packages that were sucessfully installed previously.  This build does require the associated renv lock file, located in the [copy_files](https://github.com/tbrunetti/container_recipes/tree/blaze/copy_files) directory of this repo and is called, `2025-08-11_im_super4_all_R_libraries_locked_renv.lock`.
+
+ > [!IMPORTANT]
+ > Make sure you are not connected to campus VPN to build this; with the vast number of calls to different R repositories the VPN slows down access to the these repositories that the build will fail.
+
+ 1. First download the DockerFile and associated lock file above.  Be sure to build the container in the same directory as the location of the lock file as that needs to by copied into the Docker container build.
+ 2. Run the following command but replace the `ghp_XXXXXXXXXXXXXX` with your associated github token:
+ ```
+ sudo DOCKER_BUILDKIT=1 docker build --progress=plain --build-arg GITHUB_PAT=ghp_XXXXXXXXXXXXXX -f ../docker_recipes/imsuper4_freeze_2025-08-13_r_v_4.4.2.Dockerfile . --tag tbrunetti/immu6110_introduction_to_bioinformatics:imsuper4_freeze_2025-08-13_r_v_4.4.2
+```
+3. Re-run the above command if you encounter seg faults or memory mapping issues.  It should resume from point of failure and use the renv cache so that downloads and successful installs are not repeated.
