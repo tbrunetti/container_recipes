@@ -186,11 +186,3 @@ sudo docker run --mount type=bind,src=/my_local/directory/,target=/directory/ \
 user/repo:nameOfContainer \
 command --file directory/sub_directory/local_file.txt
 ```
---tag user/repo:nameOfContainer .
-```
-
-Building multi-platform containers takes up a lot of space, make sure to continually clear your cache so you don't get any "not enough free disk space" errors from docker. You can do this by running the command below.
-
-```
-sudo docker system prune -a
-```
