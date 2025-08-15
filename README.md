@@ -165,7 +165,6 @@ sudo docker buildx build \
 --push \
 --platform linux/amd64,linux/arm64 \ ## whatever platforms you want it built on
 -f nameOf.Dockerfile \
-<<<<<<< HEAD
 --tag user/repo:nameOfContainer .
 ```
 
@@ -177,25 +176,16 @@ sudo docker system prune -a
 
 **To create a bind point to a docker container**
 
-<<<<<<< HEAD
 To run commands in a pre-built container that require local files, you'll need to [specify a bind point](https://docs.docker.com/engine/storage/bind-mounts/). You'll notice that the `--mount` flag requires three inputs (separated by commas); `type`, `src`, and `target`.
 * `type`: is the kind of mount you would like to do to the docker container. In this case, we want a bind point to the local system, so `type=bind`.
 * `src`: is the location of a file/directory on the host (i.e. what local files you want run in the container) and can be an absolute or relative path (can use `src=.` or `src="$(pwd)"` as well).
 * `target`: is the location where the file/directory is mounted in the container and _MUST_ be an absolute path.
-=======
-To run commands in a pre-built container that require local files, you'll need to [specify a bind point](https://docs.docker.com/engine/storage/bind-mounts/). You'll notice that the `--mount` flag requires three inputs (separated by commas); `type`, `src`, and `target`.
-* `type`: is the kind of mount you would like to do to the docker container. In this case, we want a bind point to the local system, so `type=bind`.
-* `src`: is the location of a file/directory on the host (i.e. what local files you want run in the container) and can be an absolute or relative path (can use `src=.` or `src="$(pwd)"` as well).
-* `target`: is the location where the file/directory is mounted in the container and _MUST_ be an absolute path.
->>>>>>> a8e3199 (fixing rsem container and adding docs about bind points)
 
 ```
 sudo docker run --mount type=bind,src=/my_local/directory/,target=/directory/ \
 user/repo:nameOfContainer \
 command --file directory/sub_directory/local_file.txt
-<<<<<<< HEAD
 ```
-=======
 --tag user/repo:nameOfContainer .
 ```
 
@@ -204,7 +194,3 @@ Building multi-platform containers takes up a lot of space, make sure to continu
 ```
 sudo docker system prune -a
 ```
->>>>>>> 46aec58 (building containers for rsem and picard)
-=======
-```
->>>>>>> a8e3199 (fixing rsem container and adding docs about bind points)
