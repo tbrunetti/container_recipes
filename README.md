@@ -155,6 +155,7 @@ This will list all docker images you have available on your local OS.
     * humann-v3.9 *(includes metaphlan v4.0.3)*
 
 * [_tbrunetti/immu6110_introduction_to_bioinformatics_](https://hub.docker.com/repository/docker/tbrunetti/immu6110_introduction_to_bioinformatics/tags)
+   * imsuper4_freeze_2025-08-18_r_v_4.4.2 (same as below but with added parser libraries; see ADVANCED! section for more info on this build)
    * imsuper4_freeze_2025-08-13_r_v_4.4.2 (see ADVANCED! section for more info on this build)
    * v02.2022
    * v01.2022
@@ -192,9 +193,11 @@ user/repo:nameOfContainer \
 command --file directory/sub_directory/local_file.txt
 ```
 
-**Rebuilding imsuper4_freeze_2025-08-13_r_v_4.4.2**
+**Rebuilding imsuper4_freeze_2025-08-13_r_v_4.4.2 or imsuper4_freeze_2025-08-18_r_v_4.4.2**
 
 The container image is a version controlled freeze of R v4.4.2 and all associated R packages (~650 different R packages) on the Department of Immunology & Microbiology imsuper4 compute node as of August 13, 2025.  This DockerFile and generated image are a complicated and due to the nature of using `renv` with nearly 650 version controlled packges for R v4.4.2, it encounters many random seg faults during the builder stage that are not reproducible.  Therefore, an renv cache is generated within the builder stage of the container so that at each failure, the build can be re-run from point of failure without having to download packages again or re-install any packages that were sucessfully installed previously.  This build does require the associated renv lock file, located in the [copy_files](https://github.com/tbrunetti/container_recipes/tree/blaze/copy_files) directory of this repo and is called, `2025-08-11_im_super4_all_R_libraries_locked_renv.lock`.
+
+The _08-18_r_v_4.4.2_ container image is the same as the _2025-08-13_r_v_4.4.2_ container images with the exception of added parser libraries: optparse and argparse, which are installed and version controlled in _08-18-r_v_4.4.2_.  Othwerwise, all package versions and OS remain the same.
 
  > [!IMPORTANT]
  > Make sure you are not connected to campus VPN to build this; with the vast number of calls to different R repositories the VPN slows down access to the these repositories that the build will fail.
