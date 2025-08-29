@@ -31,3 +31,12 @@ ARG TARGETARCH
 RUN cd /opt/ && \
     wget "https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.40/quarto-1.6.40-linux-$TARGETARCH.deb" && \
     gdebi --non-interactive quarto-1.6.40-linux-$TARGETARCH.deb 
+
+# install conda due to dependancy bug in snakemake but will not be used for installing software
+RUN cd /opt/ && \
+    wget "https://github.com/conda-forge/miniforge/releases/download/24.11.3-2/Miniforge3-24.11.3-2-$(uname)-$(uname -m).sh" && \
+    chmod a+x Miniforge3-24.11.3-2-$(uname)-$(uname -m).sh && \
+    bash Miniforge3-24.11.3-2-$(uname)-$(uname -m).sh -b -p /opt/miniforge3 # install in batch mode so not prompted for user input
+
+## adding miniforge3 to global path
+ENV PATH="$PATH:/opt/miniforge3/bin"
