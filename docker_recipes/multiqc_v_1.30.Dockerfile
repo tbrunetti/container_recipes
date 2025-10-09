@@ -17,7 +17,7 @@ RUN apt-get update &&  \
 # --break-system-packages is not good practice but b/c the only sotware in
 # this docker container is multiqc, ok with doing it just to install
 # package globally and bypass a virutal env
-RUN pip3 install --no-cache-dir --break-system-packages multiqc==1.26
+RUN pip3 install --no-cache-dir --break-system-packages multiqc==1.30
 
 # install conda due to dependancy bug in snakemake but will not be used for installing software
 RUN cd /opt/ && \
