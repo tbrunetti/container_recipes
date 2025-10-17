@@ -3,14 +3,14 @@ FROM ubuntu:24.04
 
 # initial OS library and certificate updates
 RUN apt-get update && \
-    apt-get install -y software-properties-common wget
+    apt-get install -y software-properties-common wget snapd
 
 # add python repo
 RUN add-apt-repository ppa:deadsnakes/ppa
 
 # update OS libraries and certificates after python repo added and install python
 RUN apt-get update &&  \
-    apt-get install -y unzip python3 python3-pip && \
+    apt-get install -y unzip python3 python3-pip yq && \
     rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
 # install multiqc
