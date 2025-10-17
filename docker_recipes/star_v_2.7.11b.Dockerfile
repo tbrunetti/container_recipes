@@ -9,9 +9,9 @@ RUN apt-get update &&  \
 # download and unzip precompiled binary
 # compiling binary rn but couldn't get precompiled executable to work
 RUN cd /opt/ && \
-    wget https://github.com/alexdobin/STAR/archive/2.7.10b.tar.gz && \
-    tar -zxvf 2.7.10b.tar.gz && \
-    rm -rf 2.7.10b.tar.gz
+    wget https://github.com/alexdobin/STAR/archive/2.7.11b.tar.gz && \
+    tar -zxvf 2.7.11b.tar.gz && \
+    rm -rf 2.7.11b.tar.gz
 
 # compiling binary rn but couldn't get precompiled executable to work
     #cd STAR-2.7.10b/source/ && \
@@ -25,4 +25,4 @@ RUN cd /opt/ && \
 
 # add star executable for arch to path
 ## need to figure out how to make this work w arm64 since they don't have it precompiled for arm64
-ENV PATH="$PATH:/opt/STAR-2.7.10b/bin/Linux_x86_64/:/opt/miniforge3/bin"
+ENV PATH="$PATH:/opt/STAR-2.7.11b/bin/Linux_x86_64/:/opt/miniforge3/bin"
