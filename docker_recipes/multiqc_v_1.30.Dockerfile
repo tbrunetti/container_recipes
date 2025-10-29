@@ -3,14 +3,21 @@ FROM ubuntu:24.04
 
 # initial OS library and certificate updates
 RUN apt-get update && \
-    apt-get install -y software-properties-common wget snapd
+    apt-get install -y software-properties-common wget
+
+## yq uses arm64 and amd64 naming for their files instead of aarch64 and x86_64
+ARG TARGETARCH
+
+## install yq for yaml processing (correct version)
+RUN wget "https://github.com/mikefarah/yq/releases/download/v4.48.1/yq_linux_$TARGETARCH.tar.gz" -O - | tar xz && \
+    mv yq_linux_$TARGETARCH /usr/local/bin/yq
 
 # add python repo
 RUN add-apt-repository ppa:deadsnakes/ppa
 
 # update OS libraries and certificates after python repo added and install python
 RUN apt-get update &&  \
-    apt-get install -y unzip python3 python3-pip yq && \
+    apt-get install -y unzip python3 python3-pip && \
     rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
 # install multiqc
