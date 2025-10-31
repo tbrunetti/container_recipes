@@ -133,7 +133,7 @@ This will list all docker images you have available on your local OS.
 * [_tbrunetti/functional_crispr_screen_](https://hub.docker.com/r/tbrunetti/functional_crispr_screen/tags)
     * ubuntu-v24.04
     * fastqc-v0.12.1
-    * multiqc-v1.16
+    * multiqc-v1.30
     * cutadapt-v4.2
     * bowtie1-v1.3.1
     * bbmap-v39.08
@@ -142,11 +142,14 @@ This will list all docker images you have available on your local OS.
 
 * [_madiapgar/bulk_rna_seq_](https://hub.docker.com/r/madiapgar/bulk_rna_seq/tags)
     * fastqc-v0.12.1
-    * star-v2.7.10b (linux/amd64 only!!)
-    * multiqc-v1.26
+    * star-v2.7.11b (linux/amd64 only!!)
+    * multiqc-v1.30
     * cutadapt-v4.2
     * rsem-v1.3.3
     * picard-v2.27.5
+    * ubuntu-v24.04
+    * fastq_screen-v0.16.0 *(includes bowtie2 v2.5.4)*
+    * bowtie2-v2.5.4
 
 * [_madiapgar/shotgun_meta_](https://hub.docker.com/repository/docker/madiapgar/shotgun_meta/tags)
     * fastqc-v0.12.1
