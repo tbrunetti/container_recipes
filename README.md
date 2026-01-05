@@ -150,6 +150,8 @@ This will list all docker images you have available on your local OS.
     * ubuntu-v24.04
     * fastq_screen-v0.16.0 *(includes bowtie2 v2.5.4)*
     * bowtie2-v2.5.4
+    * samtools-v1.23
+    * ucsc_utils-v1.04 (linux/amd64 only!!)
 
 * [_madiapgar/shotgun_meta_](https://hub.docker.com/repository/docker/madiapgar/shotgun_meta/tags)
     * fastqc-v0.12.1
