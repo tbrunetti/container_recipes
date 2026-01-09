@@ -10,7 +10,7 @@ RUN add-apt-repository ppa:deadsnakes/ppa
 
 # update OS libraries and certificates after python repo added and install python
 RUN apt-get update &&  \
-    apt-get install -y unzip python3 python3-pip && \
+    apt-get install -y unzip python3 python3-pip bc && \
     rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
 # install multiqc

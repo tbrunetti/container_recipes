@@ -4,7 +4,7 @@ FROM ubuntu:24.04
 # update OS libraries and install OS dependencies to get rsem working
 ## rsem has dependencies of c++, perl, perl-doc, and r
 RUN apt-get update &&  \
-    apt-get install -y unzip gzip wget python3 build-essential perl-doc r-base && \
+    apt-get install -y unzip gzip wget python3 build-essential perl-doc r-base bc && \
     rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
 # download and unzip precompiled binary

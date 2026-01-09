@@ -2,7 +2,7 @@ FROM ubuntu:24.04
 
 ## fastq-screen has perl and bowtie2 dependencies 
 RUN apt-get update && \
-    apt-get install -y unzip wget perl software-properties-common python3 && \
+    apt-get install -y unzip wget perl software-properties-common python3 bc && \
     rm -rf /var/lib/apt/lists/*  ##clean up to reduce image size
 
 ## download and install bowtie2 v2.5.4 (same version as conda install)
