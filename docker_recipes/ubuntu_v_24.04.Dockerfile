@@ -4,7 +4,7 @@ FROM ubuntu:24.04
 
 # update OS libraries and install OS dependencies to get FastQC working
 RUN apt-get update &&  \
-    apt-get install -y unzip wget perl default-jre default-jdk rsync && \
+    apt-get install -y unzip wget perl default-jre default-jdk rsync bc && \
     rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
 # install conda due to dependancy bug in snakemake but will not be used for installing software
