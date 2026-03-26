@@ -1,3 +1,6 @@
+> [!WARNING]  
+> This repo has now [moved!](https://github.com/Comp-Bio-Pipeline-Dev-Team/container_recipes).  Please visit our new home at the github organization, [Comp-Bio-PipelineDev-Team, here](https://github.com/Comp-Bio-Pipeline-Dev-Team).  This repo will be archived as read only and no longer under active development.
+
 # container recipes
 A repository of container recipes for software reproducibility
 
